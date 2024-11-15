@@ -8,14 +8,42 @@
 <body>
 
     <main id="app">
-        <h1>Todos os Pedidos Pendentes</h1>
         <div>
-            <div v-for="item in orderList" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
-                <p>Nome: {{ item.name }}</p>
-                <p>CPF: {{ item.cpf }}</p>
-                <p>Telefone: {{ item.phone_number }}</p>
-                <p>Data de entrada: {{ formatDate(item.creation_date) }}</p>
-                <button v-on:click="detailsOrder(item.code)">Ver Detalhes</button>
+            <h2>Pedidos Pendentes</h2>
+            <div>
+                <div v-for="item in orderListPending" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
+                    <p>Nome: {{ item.name }}</p>
+                    <p>CPF: {{ item.cpf }}</p>
+                    <p>Telefone: {{ item.phone_number }}</p>
+                    <p>Data de entrada: {{ formatDate(item.creation_date) }}</p>
+                    <button v-on:click="detailsOrder(item.code)">Ver Detalhes</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2>Pedidos em Preparação</h2>
+            <div>
+                <div v-for="item in orderListPreparation" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
+                    <p>Nome: {{ item.name }}</p>
+                    <p>CPF: {{ item.cpf }}</p>
+                    <p>Telefone: {{ item.phone_number }}</p>
+                    <p>Data de entrada: {{ formatDate(item.creation_date) }}</p>
+                    <button v-on:click="detailsOrder(item.code)">Ver Detalhes</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h2>Pedidos Prontos</h2>
+            <div>
+                <div v-for="item in orderListReady" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
+                    <p>Nome: {{ item.name }}</p>
+                    <p>CPF: {{ item.cpf }}</p>
+                    <p>Telefone: {{ item.phone_number }}</p>
+                    <p>Data de entrada: {{ formatDate(item.creation_date) }}</p>
+                    <button v-on:click="detailsOrder(item.code)">Ver Detalhes</button>
+                </div>
             </div>
         </div>
     </main>

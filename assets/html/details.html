@@ -14,6 +14,11 @@
             <p>Telefone: {{ order.phone_number }}</p>
             <p>Data de entrada: {{ formatDate(order.creation_date) }}</p>
             <p>Total a pagar: {{ formatMoney(order.total_to_pay) }}</p>
+
+            <div>
+                <button v-if="order.status == 'waiting_for_confirmation'" v-on:click="acceptOrder">Aceitar Pedido</button>
+                <button v-if="order.status == 'in_preparation'" v-on:click="readyOrder">Marcar como Feito</button>
+            </div>
         </div>
         <br>
         <h2>Produtos</h2>

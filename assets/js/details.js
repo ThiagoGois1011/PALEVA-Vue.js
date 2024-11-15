@@ -9,11 +9,7 @@ const app = Vue.createApp({
     mounted(){
         fetch(`http://localhost:3000/api/v1/establishments/${this.establishmentCode}/orders/${this.orderCode}`)
         .then(data => data.json())
-        .then(data => {
-            this.order = data;
-            console.log(data);
-            
-        })
+        .then(data => this.order = data)
         .catch(error => console.log(error));
     },
     methods:{
@@ -34,6 +30,32 @@ const app = Vue.createApp({
               }).format(value);
 
             return formated;
+        },
+        acceptOrder(){
+            fetch(`http://localhost:3000/api/v1/establishments/${this.establishmentCode}/orders/${this.orderCode}/accept_order`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then(data => {
+                if (data.status == 200) {
+                    alert('Alteração feita com sucesso.')
+                    this.order.status = 'in_preparation'
+                }
+            })
+        },
+        readyOrder(){
+            fetch(`http://localhost:3000/api/v1/establishments/${this.establishmentCode}/orders/${this.orderCode}/ready`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            }})
+            .then(data => {
+                if (data.status == 200) {
+                    alert('Alteração feita com sucesso.')
+                    this.order.status = 'ready'
+                }
+            })
         }
     }
 });
