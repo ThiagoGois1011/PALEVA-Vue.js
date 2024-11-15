@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Pedido</title>
+</head>
+<body>
+    <main id="app" style="margin-left: 40px;"s>
+        <h1>Detalhes</h1>
+        <div>
+            <p>Nome: {{ order.name }}</p>
+            <p>CPF: {{ order.cpf }}</p>
+            <p>Telefone: {{ order.phone_number }}</p>
+            <p>Data de entrada: {{ formatDate(order.creation_date) }}</p>
+            <p>Total a pagar: {{ formatMoney(order.total_to_pay) }}</p>
+        </div>
+        <br>
+        <h2>Produtos</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Porção</th>
+                    <th>Preço</th>
+                    <th>Observação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in order.order_items">
+                    <td>{{ item.portion.portionable.name }}</td>
+                    <td>{{ item.portion.description }}</td>
+                    <td>{{ formatMoney(item.portion.price) }}</td>
+                    <td>{{ item.observation }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../js/details.js"></script>
+</body>
+</html>

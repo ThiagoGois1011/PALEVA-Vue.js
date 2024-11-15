@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozinha - PaLevá</title>
+</head>
+<body>
+
+    <main id="app">
+        <h1>Todos os Pedidos Pendentes</h1>
+        <div>
+            <div v-for="item in orderList" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
+                <p>Nome: {{ item.name }}</p>
+                <p>CPF: {{ item.cpf }}</p>
+                <p>Telefone: {{ item.phone_number }}</p>
+                <p>Data de entrada: {{ formatDate(item.creation_date) }}</p>
+                <button v-on:click="detailsOrder(item.code)">Ver Detalhes</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
