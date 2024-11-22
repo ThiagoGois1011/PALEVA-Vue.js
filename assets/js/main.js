@@ -1,4 +1,4 @@
-const establishmentCode = 'BLKGKV';
+const establishmentCode = 'CHXMKI';
 
 const app = Vue.createApp({
     data(){
