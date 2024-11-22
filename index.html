@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozinha - PaLevá</title>
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
 
     <main id="app">
         <div>
             <h2>Pedidos Pendentes</h2>
-            <div>
-                <div v-for="item in orderListPending" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
+            <div class="container_product">
+                <div v-for="item in orderListPending" class="container_item">
                     <p>Nome: {{ item.name }}</p>
                     <p>CPF: {{ item.cpf }}</p>
                     <p>Telefone: {{ item.phone_number }}</p>
@@ -23,8 +24,8 @@
 
         <div>
             <h2>Pedidos em Preparação</h2>
-            <div>
-                <div v-for="item in orderListPreparation" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
+            <div class="container_product">
+                <div v-for="item in orderListPreparation" class="container_item">
                     <p>Nome: {{ item.name }}</p>
                     <p>CPF: {{ item.cpf }}</p>
                     <p>Telefone: {{ item.phone_number }}</p>
@@ -36,8 +37,8 @@
 
         <div>
             <h2>Pedidos Prontos</h2>
-            <div>
-                <div v-for="item in orderListReady" style="border: 1px solid black; margin-bottom: 10px; padding: 20px;">
+            <div class="container_product">
+                <div v-for="item in orderListReady" class="container_item">
                     <p>Nome: {{ item.name }}</p>
                     <p>CPF: {{ item.cpf }}</p>
                     <p>Telefone: {{ item.phone_number }}</p>

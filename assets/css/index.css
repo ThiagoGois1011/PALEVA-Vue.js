@@ -1,0 +1,27 @@
+.container_product {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items: flex-start;
+   margin-top: 20px;
+}
+
+.container_item {
+   background-color: rgb(175, 190, 159);
+   border-radius: 20px;
+   padding: 20px;
+   margin: 0 4vw 3vw 0;
+   width: 20vw;
+   border: 1px solid black;
+}
+
+button {
+   padding: 10px 20px;
+   background-color: rgb(104, 103, 103);
+   color: white;
+   border: none
+}
+
+button:hover{
+   background-color: rgb(51, 43, 43);
+}
